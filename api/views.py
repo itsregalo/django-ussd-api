@@ -30,8 +30,8 @@ def ussd_callback(request):
         elif text == "1":
             members = Member.objects.all()
             for member in members:
-                response = member.name + "\n"
-                response += member.adm_no + "\n"
+
+                response = f"END {member.name} - {member.adm_no}\n"
 
         return HttpResponse(response)
         
