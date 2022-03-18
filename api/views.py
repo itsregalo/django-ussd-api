@@ -30,6 +30,8 @@ def ussd_callback(request):
         for member in members:
             response = member.name + "\n"
             response += member.adm_no + "\n"
+
+    return HttpResponse(response)
         
    
 
