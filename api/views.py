@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import africastalking
 import os
+from api.models import Member
 from decouple import config
 from django.shortcuts import HttpResponse
 
@@ -21,7 +22,15 @@ def ussd_callback(request):
 
     if text == "":
         response = "Hello What would you like to check \n"
-        response += "1. Register \n"
+        response += "1. List all members \n"
         response += "2. Confirm if registered \n"
-    return HttpResponse(response)
+
+    elif text == "1":
+        members = Member.objects.all()
+        for member in members:
+            response = member.name + "\n"
+            response += member.adm_no + "\n"
+        
+   
+
         
