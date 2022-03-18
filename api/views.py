@@ -15,15 +15,15 @@ sms = africastalking.SMS
 @csrf_exempt
 def ussd_callback(request):
     if request.method == 'POST':
-        session_id = request.GET.get("sessionId")
-        service_code = request.GET.get("serviceCode")
-        phone_number = request.GET.get("phoneNumber")
-        text = request.GET.get("text", "default")
+        session_id = request.POST.get("sessionId"),
+        service_code = request.POST.get("serviceCode")
+        phone_number = request.POST.get("phoneNumber")
+        text = request.POST.get("text", "default")
 
         response=""
 
         if text == "":
-            response = "Hello What would you like to check \n"
+            response = "CON Hello What would you like to check \n"
             response += "1. List all members \n"
             response += "2. Confirm if registered \n"
 
@@ -33,7 +33,7 @@ def ussd_callback(request):
                 response = member.name + "\n"
                 response += member.adm_no + "\n"
 
-        return HttpResponse(response)
+        return response
         
    
 
