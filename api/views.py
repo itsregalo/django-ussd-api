@@ -33,7 +33,7 @@ def ussd_callback(request):
                 response = member.name + "\n"
                 response += member.adm_no + "\n"
 
-        return response
+        return HttpResponse(response)
         
    
 
