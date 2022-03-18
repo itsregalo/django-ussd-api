@@ -3,5 +3,5 @@ from .views import *
 
 
 urlpatterns = [
-    path('account/', ussd_callback, name='account'),
+    path('ussd-callback/', ussd_callback, name='ussd_callback'),
 ]
